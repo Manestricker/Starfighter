@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//Â© A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -18,19 +18,29 @@ public class Bullets
 
 	public Bullets()
 	{
+		ammo = new ArrayList<Ammo>();
 	}
 
 	public void add(Ammo al)
 	{
+		ammo.add(al);
 	}
 
 	//post - draw each Ammo
 	public void drawEmAll( Graphics window )
 	{
+		for(Ammo a: ammo){
+			a.draw(window);
+		}
 	}
 
 	public void moveEmAll()
 	{
+		if (ammo.size() > 0) {
+			for(Ammo b: ammo){
+				b.move("UP");
+			}
+		}
 	}
 
 	public void cleanEmUp()
@@ -39,7 +49,7 @@ public class Bullets
 
 	public List<Ammo> getList()
 	{
-		return null;
+		return ammo;
 	}
 
 	public String toString()
