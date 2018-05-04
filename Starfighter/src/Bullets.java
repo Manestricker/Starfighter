@@ -56,6 +56,13 @@ public class Bullets
 
 	public void cleanEmUp()
 	{
+		if (ammo.size() > 0) {
+			for(Ammo d: ammo){
+				if(d.getY()<-1){
+					d.setPos(0, -1);
+				}
+			}
+		}
 	}
 
 	public List<Ammo> getList()

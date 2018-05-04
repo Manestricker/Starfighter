@@ -122,6 +122,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		ship.draw(graphToBack);
 		shots.drawEmAll(graphToBack);
 		shots.moveEmAll();
+		shots.cleanEmUp();
 		twoDGraph.drawImage(back, null, 0, 0);
 		
 		//Collision Detection
