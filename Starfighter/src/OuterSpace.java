@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//Â© A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class - 
@@ -22,12 +22,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Ammo ammo;
 	private Alien alienOne;
 	private Alien alienTwo;
-
-	/* uncomment once you are ready for this part
-	 *
-   private AlienHorde horde;
 	private Bullets shots;
-	*/
+
+
+	 
+   //private AlienHorde horde;
+	
+	
 
 	private boolean[] keys;
 	private BufferedImage back;
@@ -41,7 +42,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		//instantiate other instance variables
 		//Ship, Alien
 		ship = new Ship();
-		ammo = new Ammo();
+		shots = new Bullets();
 		alienOne = new Alien();
 		alienTwo = new Alien(25,25);
 		
@@ -75,7 +76,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
 
-		if(keys[0] == true)
+		if(keys[0] )
 		{
 			ship.move("LEFT");
 		}
@@ -92,9 +93,10 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 			ship.move("UP");
 		}
 		if(keys[4]){
-			ammo.move(ship.getX(),ship.getY());
+			shots.add(new Ammo(ship.getX(), ship.getY()));
+			keys[4] = false;
 		}
-		ammo.moveUp();
+		
 
 
 		//add code to move Ship, Alien, etc.
@@ -111,20 +113,15 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		if(ship.getY()>600-ship.getHeight()){
 			ship.setY(600-ship.getHeight());
 		}
-		if(ammo.getY()<alienOne.getY()&&ammo.getX()>alienOne.getX()){
-			alienOne.setHeight(0);
-			alienOne.setWidth(0);
-		}
-		if(ammo.getY()==alienTwo.getY()&&ammo.getX()==alienTwo.getX()){
-			alienTwo.setHeight(0);
-			alienTwo.setWidth(0);
-		}
+		
+		
 		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
 		alienOne.draw(graphToBack);
 		alienTwo.draw(graphToBack);
-		
+		 
 		ship.draw(graphToBack);
-		ammo.draw(graphToBack);
+		shots.drawEmAll(graphToBack);
+		shots.moveEmAll();
 		twoDGraph.drawImage(back, null, 0, 0);
 		
 	}
@@ -200,4 +197,3 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
       }
   	}
 }
-
