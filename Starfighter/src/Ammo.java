@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//Â© A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class - 
@@ -19,12 +19,12 @@ public class Ammo extends MovingThing
 
 	public Ammo()
 	{
-		this(-10,-10,5);
+		this(10,10,5);
 	}
 
 	public Ammo(int x, int y)
 	{
-		this(x,y,0);
+		this(x,y,2);
 	}
 
 	public Ammo(int x, int y, int s)
@@ -33,7 +33,7 @@ public class Ammo extends MovingThing
 		speed = s;
 		try
 		{
-			URL url = getClass().getResource("/face.png");
+			URL url = getClass().getResource("/ship.jpg");
 			image = ImageIO.read(url);
 		}
 		catch(Exception e)
@@ -44,7 +44,7 @@ public class Ammo extends MovingThing
 
 	public void setSpeed(int s)
 	{
-	   speed =s;
+	   speed = s;
 	}
 
 	public int getSpeed()
@@ -58,21 +58,26 @@ public class Ammo extends MovingThing
 	}
 	
 	
-	public void move(  int x, int y )
+	public void move(String direction)
 	{
-		super.setPos(x, y);
+		if(direction.equals("UP")){
+			super.setY(super.getY()+speed);
+		}
+		if(direction.equals("DOWN")){
+			super.setY(super.getY()-speed);
+		}
+		if(direction.equals("RIGHT")){
+			super.setX(getX()+speed);
+		}
+		if(direction.equals("LEFT")){
+			super.setX(getX()-speed);
+		}
 	}
 	public void moveUp(){
-		super.setY(super.getY()-speed);
+		this.move("UP");
 	}
 	public String toString()
 	{
 		return "";
-	}
-
-	@Override
-	public void move(String direction) {
-		// TODO Auto-generated method stub
-		
 	}
 }
