@@ -42,6 +42,17 @@ public class Bullets
 			}
 		}
 	}
+	public boolean collision(Alien a){
+		if(ammo.size() > 0){
+			for(Ammo c: ammo){
+				//if((c.getX()<a.getX())&&(c.getX()>a.getX()-a.getHeight())&&(c.getY()<a.getY())&&(c.getY()>a.getY()-a.getWidth())){
+				if((c.getY()>a.getY())&&(c.getY()<a.getY()+a.getHeight())&&(c.getX()>a.getX())&&(c.getX()<a.getX()+a.getWidth())){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
 	public void cleanEmUp()
 	{

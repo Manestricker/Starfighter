@@ -124,6 +124,14 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		shots.moveEmAll();
 		twoDGraph.drawImage(back, null, 0, 0);
 		
+		//Collision Detection
+		if(shots.collision(alienOne)){
+			alienOne.setPos(-100, -100);;
+		}
+		if(shots.collision(alienTwo)){
+			alienTwo.setPos(-100, -100);;
+		}
+		
 	}
 
 
