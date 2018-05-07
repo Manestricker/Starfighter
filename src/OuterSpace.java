@@ -22,6 +22,14 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Ammo ammo;
 	private Alien alienOne;
 	private Alien alienTwo;
+	private Alien alienThree;
+	private Alien alienFour;
+	private Alien alienFive;
+	private Alien alienSix;
+	private Alien alienSeven;
+	private Alien alienEight;
+	private Alien alienNine;
+	private Alien alienTen;
 	private Bullets shots;
 	private AlienHorde horde;
 	
@@ -42,10 +50,26 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		shots = new Bullets();
 		alienOne = new Alien();
 		alienTwo = new Alien(100,100);
-		horde = new AlienHorde(5);
+		alienThree = new Alien(50,50);
+		alienFour = new Alien(25,25);
+		alienFive = new Alien(200,200);
+		alienSix = new Alien(225,225);
+		alienSeven = new Alien(250,250);
+		alienEight = new Alien(300,300);
+		alienNine = new Alien(75,75);
+		alienTen = new Alien(130,130);
+		horde = new AlienHorde(10);
 		
 		horde.add(alienOne);
 		horde.add(alienTwo);
+		horde.add(alienThree);
+		horde.add(alienFour);
+		horde.add(alienFive);
+		horde.add(alienSix);
+		horde.add(alienSeven);
+		horde.add(alienEight);
+		horde.add(alienNine);
+		horde.add(alienTen);
 		//horde.addEmAll();
 		this.addKeyListener(this);
 		new Thread(this).start();
@@ -129,16 +153,40 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		twoDGraph.drawImage(back, null, 0, 0);
 		
 		//Collision Detection
-		if(shots.collision(alienOne)){
-			alienOne.setPos(-100, -100);;
-		}
-		if(shots.collision(alienTwo)){
-			alienTwo.setPos(-100, -100);;
-		}
+//		if(shots.collision(alienOne)){
+//			alienOne.setPos(-100, -100);;
+//		}
+//		if(shots.collision(alienTwo)){
+//			alienTwo.setPos(-100, -100);;
+//		}
+//		if(shots.collision(alienThree)){
+//			alienOne.setPos(-100, -100);;
+//		}
+//		if(shots.collision(alienFour)){
+//			alienTwo.setPos(-100, -100);;
+//		}
+//		if(shots.collision(alienFive)){
+//			alienOne.setPos(-100, -100);;
+//		}
+//		if(shots.collision(alienSix)){
+//			alienTwo.setPos(-100, -100);;
+//		}
+//		if(shots.collision(alienSeven)){
+//			alienOne.setPos(-100, -100);;
+//		}
+//		if(shots.collision(alienEight)){
+//			alienTwo.setPos(-100, -100);;
+//		}
+//		if(shots.collision(alienNine)){
+//			alienOne.setPos(-100, -100);;
+//		}
+//		if(shots.collision(alienTen)){
+//			alienTwo.setPos(-100, -100);;
+//		}
 		//horde.removeDeadOnes(shots.collision(horde.aliens));
 		if(horde.getSize()>0){
 			for(Alien a: horde.aliens){
-				horde.removeDeadOnes(shots.collision(a));
+				horde.removeDeadOnes(shots.collision(a),a);
 			}
 		}
 	}

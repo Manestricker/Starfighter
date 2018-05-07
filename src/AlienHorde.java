@@ -55,13 +55,11 @@ public class AlienHorde
 		}
 	}
 
-	public void removeDeadOnes(boolean bool)
+	public void removeDeadOnes(boolean bool, Alien c)
 	{
-		for(Alien c: aliens){
 			if(bool){
 			c.setPos(-100, -100);
 			}
-		}
 	}
 	public int getSize(){
 		return aliens.size();
