@@ -40,7 +40,7 @@ public class StarFighter extends JFrame
 	}
 	public static void playSound() {
 	    try {
-	        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("C:\\Users\\s1515623\\workspace\\Starfighter\\src\\music.wav").getAbsoluteFile());
+	        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(StarFighter.class.getResourceAsStream("Galaga-Theme.wav"));
 	        Clip clip = AudioSystem.getClip();
 	        clip.open(audioInputStream);
 	        clip.start();
