@@ -4,8 +4,13 @@
 //Class -
 //Lab  -
 
+import javax.print.attribute.standard.Media;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JFrame;
 import java.awt.Component;
+import java.io.File;
 
 public class StarFighter extends JFrame
 {
@@ -29,5 +34,20 @@ public class StarFighter extends JFrame
 	{
 		System.out.println("howdy");
 		StarFighter run = new StarFighter();
+		playSound();
+		
+
+	}
+	public static void playSound() {
+	    try {
+	        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("C:\\Users\\s1515623\\workspace\\Starfighter\\src\\music.wav").getAbsoluteFile());
+	        Clip clip = AudioSystem.getClip();
+	        clip.open(audioInputStream);
+	        clip.start();
+	        clip.loop(100);
+	    } catch(Exception ex) {
+	        System.out.println("Error with playing sound.");
+	        ex.printStackTrace();
+	    }
 	}
 }
