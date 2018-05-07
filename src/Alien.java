@@ -14,27 +14,29 @@ import javax.imageio.ImageIO;
 public class Alien extends MovingThing
 {
 	private int speed;
+	private boolean bool;
 	private Image image;
 
 	public Alien()
 	{
-		this(10,10,30,30,0);
+		this(10,10,30,30,1,false);
 	}
 
 	public Alien(int x, int y)
 	{
-		this(x,y,30,30,0);
+		this(x,y,30,30,1,false);
 	}
 
-	public Alien(int x, int y, int s)
+	public Alien(int x, int y, int s,Boolean a)
 	{
-		this(x,y,30,30,s);
+		this(x,y,30,30,1,false);
 	}
 
-	public Alien(int x, int y, int w, int h, int s)
+	public Alien(int x, int y, int w, int h, int s, Boolean a)
 	{
 		super(x, y, w,h);
 		speed=s;
+		bool = a;
 		try
 		{
 			URL url = getClass().getResource("/alien.jpg");
@@ -45,7 +47,12 @@ public class Alien extends MovingThing
 			//feel free to do something here
 		}
 	}
-
+	public void setBool(Boolean b){
+		bool = b;
+	}
+	public boolean getBool(){
+		return bool;
+	}
 	public void setSpeed(int s)
 	{
 	   speed = s;

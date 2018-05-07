@@ -59,7 +59,7 @@ public class Bullets
 		if (ammo.size() > 0) {
 			for(Ammo d: ammo){
 				if(d.getY()<-1){
-					d.setPos(0, -1);
+					d.setPos(-1000, -1000);
 				}
 			}
 		}

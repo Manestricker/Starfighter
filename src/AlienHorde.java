@@ -25,11 +25,11 @@ public class AlienHorde
 	{
 		aliens.add(al);
 	}
-	public void addEmAll(){
-		for(int i=0;i<aliens.size();i++){
-			aliens.add(new Alien(0+i*3,0+i*3));
-		}
-	}
+//	public void addEmAll(){
+//		for(int i=0;i<aliens.size();i++){
+//			aliens.add(new Alien(0+i*3,0+i*3));
+//		}
+//	}
 
 	public void drawEmAll( Graphics window )
 	{
@@ -41,7 +41,17 @@ public class AlienHorde
 	public void moveEmAll()
 	{
 		for(Alien b: aliens){
-			b.move("UP");
+			if(b.getX()==740){
+				b.setBool(true);
+			}
+			if(b.getX()==0){
+				b.setBool(false);
+			}
+			if(b.getBool()){
+				b.move("LEFT");
+			}else{
+				b.move("RIGHT");
+			}
 		}
 	}
 
