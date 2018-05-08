@@ -4,19 +4,21 @@
 //Class -
 //Lab  -
 
-import javax.print.attribute.standard.Media;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.JFrame;
 import java.awt.Component;
-import java.io.File;
+import java.net.URL;
 
 public class StarFighter extends JFrame
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3023850751464671081L;
 	private static final int WIDTH = 800;
 	private static final int HEIGHT = 600;
-
 	public StarFighter()
 	{
 		super("STARFIGHTER");
@@ -34,20 +36,8 @@ public class StarFighter extends JFrame
 	{
 		System.out.println("howdy");
 		StarFighter run = new StarFighter();
-		playSound();
+		Sounds back = new Sounds();
+		back.playBackground();
 		
-
-	}
-	public static void playSound() {
-	    try {
-	        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(StarFighter.class.getResourceAsStream("Galaga-Theme.wav"));
-	        Clip clip = AudioSystem.getClip();
-	        clip.open(audioInputStream);
-	        clip.start();
-	        clip.loop(100);
-	    } catch(Exception ex) {
-	        System.out.println("Error with playing sound.");
-	        ex.printStackTrace();
-	    }
 	}
 }

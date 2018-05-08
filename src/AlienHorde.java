@@ -4,11 +4,7 @@
 //Class -
 //Lab  -
 
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.io.File;
-import javax.imageio.ImageIO;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +55,8 @@ public class AlienHorde
 	{
 			if(bool){
 			c.setPos(-100, -100);
+			Sounds play = new Sounds();
+			play.playOof();
 			}
 	}
 	public int getSize(){

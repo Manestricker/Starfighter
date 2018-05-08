@@ -4,7 +4,7 @@
 //Class - 
 //Lab  -
 
-import java.awt.Color;
+
 import java.awt.Graphics;
 
 public abstract class MovingThing implements Moveable

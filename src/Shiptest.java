@@ -4,9 +4,6 @@
 //Class -
 //Lab  - 
 
-import java.io.*;
-import java.util.*;
-import static java.lang.System.*;
 
 public class Shiptest
 {

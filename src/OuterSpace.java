@@ -8,18 +8,20 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Canvas;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
-import static java.lang.Character.*;
 import java.awt.image.BufferedImage;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
 
 public class OuterSpace extends Canvas implements KeyListener, Runnable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7317053773365958771L;
 	private Ship ship;
-	private Ammo ammo;
+	//private Ammo ammo;
+	private Sounds ear;
 	private Alien alienOne;
 	private Alien alienTwo;
 	private Alien alienThree;
@@ -30,6 +32,17 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Alien alienEight;
 	private Alien alienNine;
 	private Alien alienTen;
+	private Alien alienEleven;
+	private Alien alienTwelve;
+	private Alien alienThirteen;
+	private Alien alienFourteen;
+	private Alien alienFifteen;
+	private Alien alienSixteen;
+	private Alien alienSeventeen;
+	private Alien alienEightteen;
+	private Alien alienNineteen;
+	private Alien alienTwenty;
+
 	private Bullets shots;
 	private AlienHorde horde;
 	
@@ -46,6 +59,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 		//instantiate other instance variables
 		//Ship, Alien
+		ear =  new Sounds();
 		ship = new Ship(400,400);
 		shots = new Bullets();
 		alienOne = new Alien();
@@ -58,7 +72,19 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		alienEight = new Alien(300,300);
 		alienNine = new Alien(75,75);
 		alienTen = new Alien(130,130);
-		horde = new AlienHorde(10);
+		alienEleven = new Alien(120,138);
+		alienTwelve = new Alien(69,69);
+		alienThirteen = new Alien(58,92);
+		alienFourteen = new Alien(20,54);
+		alienFifteen = new Alien(160,78);
+		alienSixteen = new Alien(148,118);
+		alienSeventeen = new Alien(118,148);
+		alienEightteen = new Alien(254,148);
+		alienNineteen = new Alien(148,254);
+		alienTwenty = new Alien(158,192);
+
+		
+		horde = new AlienHorde(20);
 		
 		horde.add(alienOne);
 		horde.add(alienTwo);
@@ -70,6 +96,16 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		horde.add(alienEight);
 		horde.add(alienNine);
 		horde.add(alienTen);
+		horde.add(alienEleven);
+		horde.add(alienTwelve);
+		horde.add(alienThirteen);
+		horde.add(alienFourteen);
+		horde.add(alienFifteen);
+		horde.add(alienSixteen);
+		horde.add(alienSeventeen);
+		horde.add(alienEightteen);
+		horde.add(alienNineteen);
+		horde.add(alienTwenty);
 		//horde.addEmAll();
 		this.addKeyListener(this);
 		new Thread(this).start();
@@ -119,6 +155,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		}
 		if(keys[4]){
 			shots.add(new Ammo(ship.getX(), ship.getY()));
+			ear.playFire();
 			keys[4] = false;
 		}
 		

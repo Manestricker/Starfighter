@@ -4,9 +4,7 @@
 //Class -
 //Lab  -
 
-import java.io.File;
 import java.net.URL;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.imageio.ImageIO;
@@ -19,17 +17,17 @@ public class Alien extends MovingThing
 
 	public Alien()
 	{
-		this(10,10,30,30,1,false);
+		this(10,10,30,30,2,false);
 	}
 
 	public Alien(int x, int y)
 	{
-		this(x,y,30,30,1,false);
+		this(x,y,30,30,2,false);
 	}
 
 	public Alien(int x, int y, int s,Boolean a)
 	{
-		this(x,y,30,30,1,false);
+		this(x,y,30,30,2,false);
 	}
 
 	public Alien(int x, int y, int w, int h, int s, Boolean a)
@@ -39,7 +37,7 @@ public class Alien extends MovingThing
 		bool = a;
 		try
 		{
-			URL url = getClass().getResource("/alien.jpg");
+			URL url = getClass().getResource("/joy.png");
 			image = ImageIO.read(url);
 		}
 		catch(Exception e)

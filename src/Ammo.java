@@ -4,10 +4,8 @@
 //Class - 
 //Lab  -
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.io.File;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
@@ -24,7 +22,7 @@ public class Ammo extends MovingThing
 
 	public Ammo(int x, int y)
 	{
-		this(x,y,2);
+		this(x,y,1);
 	}
 
 	public Ammo(int x, int y, int s)
@@ -33,7 +31,7 @@ public class Ammo extends MovingThing
 		speed = s;
 		try
 		{
-			URL url = getClass().getResource("/ship.jpg");
+			URL url = getClass().getResource("/ok.jpg");
 			image = ImageIO.read(url);
 		}
 		catch(Exception e)
@@ -54,7 +52,8 @@ public class Ammo extends MovingThing
 
 	public void draw( Graphics window )
 	{
-	   	window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
+		//bullet width and height are set here
+	   	window.drawImage(image,getX(),getY(),25,25,null);
 	}
 	
 	
