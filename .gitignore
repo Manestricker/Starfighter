@@ -92,3 +92,4 @@ hs_err_pid*
 
 .idea/
 bin/
+.gradle/
